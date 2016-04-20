@@ -212,7 +212,7 @@ static double GetBestLengths(ZopfliBlockState *s,
                              unsigned short* length_array) {
   /* Best cost to get here so far. */
   size_t blocksize = inend - instart;
-  float* costs;
+  double* costs;
   size_t i = 0, k;
   unsigned short leng;
   unsigned short dist;
@@ -226,7 +226,7 @@ static double GetBestLengths(ZopfliBlockState *s,
 
   if (instart == inend) return 0;
 
-  costs = (float*)malloc(sizeof(float) * (blocksize + 1));
+  costs = (double*)malloc(sizeof(double) * (blocksize + 1));
   if (!costs) exit(-1); /* Allocation failed. */
 
   ZopfliInitHash(ZOPFLI_WINDOW_SIZE, h);
